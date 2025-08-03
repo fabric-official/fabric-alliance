@@ -1,0 +1,10 @@
+{
+  "agentName": "ExampleAgentTwo",
+  "agentId": "AGNT-0002",
+  "certificationLevel": "Enterprise Compliance",
+  "daoProposalRef": "DAO-PROP-002",
+  "certifiedDate": "2025-08-03",
+  "certifiedBy": "Fabric Alliance DAO",
+  "nftTokenId": "2",
+  "nftContractAddress": "0x0000000000000000000000000000000000000001"
+}
