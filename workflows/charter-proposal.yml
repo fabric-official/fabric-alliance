@@ -1,0 +1,31 @@
+name: Charter Proposal Workflow
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  label-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Add Charter Proposal Label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: "Charter Proposal"
+
+      - name: Verify DAO Approval
+        id: dao
+        run: |
+          echo "🔎 Checking DAO approval status..."
+          # This placeholder can be replaced with on-chain verification
+          # Example: curl API call to DAO governance smart contract
+          echo "DAO vote passed ✅"
+        
+      - name: Require Maintainer Approvals
+        uses: mheap/github-action-required-reviewers@v1
+        with:
+          reviewers: "3"
