@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fabric Alliance Certification Schema",
+  "description": "Defines the required structure for a certified agent record in the Fabric Alliance registry.",
+  "type": "object",
+  "properties": {
+    "agentName": {
+      "type": "string",
+      "description": "Human-readable name of the agent being certified."
+    },
+    "agentId": {
+      "type": "string",
+      "description": "Unique identifier for the agent. Must match on-chain Fabric runtime ID."
+    },
+    "certificationLevel": {
+      "type": "string",
+      "enum": [
+        "Basic Compliance",
+        "Enterprise Compliance",
+        "Advanced Ethical AI"
+      ],
+      "description": "Certification level assigned by the DAO."
+    },
+    "daoProposalRef": {
+      "type": "string",
+      "description": "Reference to the DAO proposal that approved this certification (e.g., DAO-PROP-001)."
+    },
+    "certifiedDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the certification was approved."
+    },
+    "certifiedBy": {
+      "type": "string",
+      "description": "Entity or DAO multisig that issued this certification."
+    },
+    "nftTokenId": {
+      "type": "string",
+      "description": "Token ID of the Certification NFT minted for this agent."
+    },
+    "nftContractAddress": {
+      "type": "string",
+      "description": "Smart contract address of the Certification NFT."
+    }
+  },
+  "required": [
+    "agentName",
+    "agentId",
+    "certificationLevel",
+    "daoProposalRef",
+    "certifiedDate",
+    "certifiedBy",
+    "nftTokenId",
+    "nftContractAddress"
+  ]
+}
