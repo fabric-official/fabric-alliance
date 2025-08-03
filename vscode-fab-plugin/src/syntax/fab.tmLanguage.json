@@ -1,0 +1,10 @@
+{
+  "scopeName": "source.fab",
+  "patterns": [
+    { "match": "\\b(agent|policy|workflow|module)\\b", "name": "keyword.control.fabric" },
+    { "match": "\\b(input|output|state|royalty|fork)\\b", "name": "variable.language.fabric" },
+    { "match": "\\b(true|false)\\b", "name": "constant.language.fabric" }
+  ],
+  "repository": {},
+  "fileTypes": ["fab"]
+}
