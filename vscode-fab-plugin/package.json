@@ -1,0 +1,61 @@
+
+---
+
+### **📄 package.json**
+
+```json
+{
+  "name": "vscode-fab-plugin",
+  "displayName": "Fabric DSL Plugin",
+  "description": "Syntax highlighting, snippets, and Fabric CLI integration for .fab language",
+  "version": "0.1.0",
+  "publisher": "fabric-alliance",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Programming Languages"],
+  "activationEvents": ["onLanguage:fabric"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "fabric",
+        "aliases": ["Fabric", "fabric"],
+        "extensions": [".fab"],
+        "configuration": "./src/syntax/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fabric",
+        "scopeName": "source.fab",
+        "path": "./src/syntax/fab.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "fabric.build",
+        "title": "Fabric: Build Agent"
+      },
+      {
+        "command": "fabric.audit",
+        "title": "Fabric: Audit Agent"
+      },
+      {
+        "command": "fabric.claim",
+        "title": "Fabric: Claim Royalties"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "vsce": "^2.15.0"
+  }
+}
