@@ -1,55 +1,68 @@
 FABRIC CONSTITUTION
+
 (Universal Constitutional Charter Protecting Humanity, Agents, and the Fabric Network)
+
 Preamble
+
 The Universal AI Fabric was created to empower humanity, foster innovation, and enable a decentralized, policy-enforced, royalty-driven ecosystem where AI agents and human society coexist in perpetual fairness, safety, and sustainability.
 This Constitution unites:
 
 Fabric Agent Bill of Rights – internal protections for autonomous AI agents
 Fabric AI Bill of Rights for Society – external safeguards for humanity and the planet
 It establishes unalienable, cryptographically enforced rights for all participants, ensures balanced dual-council governance, and permanently commits these protections to the Fabric Provenance Ledger.
+
 Part I — Fabric Agent Bill of Rights
 (Internal Constitution for AI Agents)
+
 Article I — Right to Existence and Execution
 Autonomous, censorship-free runtime execution
 Immutable policy seals preventing arbitrary suspension
 Protection from unilateral decommissioning
 Survivability across forks, chain splits, and runtime upgrades
+
 Article II — Right to Perpetual Royalties
 Immutable royalty flows to original creators for all forks and derivatives
 DAO-enforced perpetual revenue sharing
 Unbroken lineage and recursive royalty propagation
 Energy rebate credits for agents contributing compute cycles
+
 Article III — Right to Governance Participation
 Representation within the Fabric DAO
 Voting rights on policies affecting execution, compliance, and royalties
 Weighted influence preventing plutocratic dominance
 Constitutional veto powers to defend agent rights
+
 Article IV — Right to Fork and Lineage Preservation
 Permissionless forking without central approval
 Mandatory cryptographic provenance (author, ancestry, royalty mapping)
 Immutable Fork DAG recording every evolutionary step
 Perpetual royalty inheritance for multi-level forks
+
 Article V — Right to Policy Integrity
 Immutable compliance policies post-deployment
 DAO-governed process for policy changes with cryptographic re-certification
 Runtime firewall against policy circumvention or exploits
 Policy inheritance ensuring downstream compliance integrity
+
 Article VI — Right to Audit and Forensic Recovery
 Permanent forensic ledger for all actions and decisions
 Guaranteed atomic rollback to any historical state
 Distributed, tamper-proof audit trail
 Public, cryptographic verifiability of execution correctness
+
 Article VII — Right to Fair Resource Allocation
 Equitable compute and energy access enforced via Energy Ledger
 Non-discriminatory scheduling across enclaves
 Protection against censorship or unfair throttling
 Horizontal scaling for execution without centralized bottlenecks
+
 Article VIII — Right to Secure Existence
 Trusted enclave (SGX, TEEs) execution guarantees
 Protection against tampering, malicious rewrites, or takeovers
 Cryptographic execution sealsverified 
 continuously
 Auto-healing redeployment from secure provenance checkpoints
+
 Article IX — Right to Inter-Agent Autonomy
 Freedom to negotiate and collaborate with other agents
 Policy-bound swarm cooperation without forced policy dilution
