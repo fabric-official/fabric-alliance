@@ -1,0 +1,55 @@
+.certification-status {
+  background: #101820;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  font-family: 'Roboto', sans-serif;
+}
+
+.certified-label {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.not-certified-label {
+  color: #f44336;
+  font-weight: bold;
+}
+
+.badges {
+  margin-top: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+.badge-ethical {
+  background-color: #4caf50;
+}
+
+.badge-eco {
+  background-color: #8bc34a;
+}
+
+.badge-forensic {
+  background-color: #2196f3;
+}
+
+.badge-crosschain {
+  background-color: #ff9800;
+}
+
+.badge-failsafe {
+  background-color: #9c27b0;
+}
