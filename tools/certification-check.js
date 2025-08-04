@@ -2,7 +2,7 @@
 const { ethers } = require("ethers");
 const fs = require("fs");
 
-const CONTRACT_ADDRESS = "<DEPLOYED_CERT_ENFORCEMENT_ADDRESS>";
+const CONTRACT_ADDRESS = process.env.CERT_ENFORCEMENT_ADDRESS;
 const ABI = JSON.parse(fs.readFileSync("./tools/smart-contracts/CertificationEnforcementABI.json"));
 
 async function verifyAgent(agentAddress) {
@@ -17,10 +17,14 @@ async function verifyAgent(agentAddress) {
 
     const badges = await contract.getBadges(agentAddress);
     const royaltyAddress = await contract.royaltyAddressFor(agentAddress);
+    const forensicAuditHash = await contract.getForensicAuditHash(agentAddress);
+    const rollbackVerified = await contract.isRollbackVerified(agentAddress);
 
     console.log(`✅ Agent ${agentAddress} is certified.`);
     console.log(`   Badges: ${badges.join(", ")}`);
     console.log(`   Royalty Address: ${royaltyAddress}`);
+    console.log(`   Forensic Audit Hash: ${forensicAuditHash}`);
+    console.log(`   Rollback Verified: ${rollbackVerified ? "Yes" : "No"}`);
 }
 
 const agentAddress = process.argv[2];
@@ -29,4 +33,7 @@ if (!agentAddress) {
     process.exit(1);
 }
 
-verifyAgent(agentAddress);
+verifyAgent(agentAddress).catch((err) => {
+    console.error("❌ Error verifying agent:", err.message);
+    process.exit(1);
+});
