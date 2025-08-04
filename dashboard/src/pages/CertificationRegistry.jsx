@@ -9,8 +9,10 @@ const ABI = require('../abis/CertificationEnforcement.json');
 export default function CertificationRegistry() {
   const [agents, setAgents] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedBadge, setSelectedBadge] = useState('');
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [badgesMap, setBadgesMap] = useState({});
 
   useEffect(() => {
     async function fetchCertifiedAgents() {
@@ -18,7 +20,6 @@ export default function CertificationRegistry() {
         const provider = new ethers.JsonRpcProvider(process.env.REACT_APP_RPC_URL);
         const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider);
 
-        // Assuming DAO contract emits AgentCertified event with indexed agent
         const filter = contract.filters.AgentCertified();
         const logs = await provider.getLogs({
           ...filter,
@@ -27,7 +28,19 @@ export default function CertificationRegistry() {
         });
 
         const uniqueAgents = [...new Set(logs.map((log) => ethers.getAddress(log.topics[1])))];
+        const badgesData = {};
+
+        for (const agent of uniqueAgents) {
+          try {
+            const agentBadges = await contract.getBadges(agent);
+            badgesData[agent] = agentBadges;
+          } catch (err) {
+            console.warn(`Failed to fetch badges for agent ${agent}:`, err.message);
+          }
+        }
+
         setAgents(uniqueAgents);
+        setBadgesMap(badgesData);
       } catch (err) {
         console.error('Error fetching certified agents:', err);
       } finally {
@@ -38,22 +51,39 @@ export default function CertificationRegistry() {
     fetchCertifiedAgents();
   }, []);
 
-  const filteredAgents = agents.filter((agent) =>
-    agent.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredAgents = agents.filter((agent) => {
+    const matchesSearch = agent.toLowerCase().includes(searchQuery.toLowerCase());
+    if (!selectedBadge) return matchesSearch;
+    return matchesSearch && badgesMap[agent]?.includes(selectedBadge);
+  });
 
   if (loading) return <div className="registry-loading">Loading Certified Agents...</div>;
 
   return (
     <div className="certification-registry">
       <h1>Certified Agents Registry</h1>
-      <input
-        type="text"
-        placeholder="Search Agent Address..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="search-input"
-      />
+      <div className="filters">
+        <input
+          type="text"
+          placeholder="Search Agent Address..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="search-input"
+        />
+
+        <select
+          value={selectedBadge}
+          onChange={(e) => setSelectedBadge(e.target.value)}
+          className="badge-filter"
+        >
+          <option value="">All Badges</option>
+          <option value="ethical-certified">Ethical Certified</option>
+          <option value="eco-certified">Environmental Certified</option>
+          <option value="forensic-certified">Forensic Certified</option>
+          <option value="crosschain-certified">Cross-Chain Certified</option>
+          <option value="failsafe-certified">Fail-Safe Certified</option>
+        </select>
+      </div>
 
       <table className="agents-table">
         <thead>
