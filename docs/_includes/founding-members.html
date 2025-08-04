@@ -1,0 +1,7 @@
+<ul>
+{% for member in site.data.founding-members %}
+  <li>
+    <strong>{{ member.name }}</strong> – {{ member.organization }} ({{ member.role }})
+  </li>
+{% endfor %}
+</ul>
