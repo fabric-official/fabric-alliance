@@ -1,54 +1,104 @@
 Fabric Alliance – Certified Agents Registry
+(Publicly Verifiable Registry of Certified AI Agents)
+Overview
+This registry maintains a public, immutable list of all Fabric Alliance Certified Agents.
+Certified agents have undergone rigorous ethical, environmental, forensic, and cross-chain safety checks, earning DAO-issued Certification NFT Badges.
 
-This document maintains a publicly verifiable registry of all AI agents certified by the Fabric Alliance. Certified agents meet strict ethical standards, compliance requirements, and DAO-approved governance seals.
+Each entry in this registry is cryptographically verifiable, on-chain auditable, and ensures that certified agents:
 
-Purpose of Certification
-Ethical Execution: Ensures AI agents operate under decentralized, policy-enforced intelligence without bias or harmful behavior.
-Privacy Protection: Enforces GDPR, HIPAA, ISO-aligned data handling and cryptographic consent logging.
-Auditability: Every certified agent provides immutable FabricAtom provenance trails for forensic verification.
-Royalty Fairness: Enforces perpetual royalty distribution to original creators, guaranteeing fair rewards for innovation.
-Global Trust: Provides enterprises, developers, and governments with a recognized ethical seal of AI safety and compliance.
-
-Certification Tiers
-
-Tier 1 – Privacy & Security Certification
-Basic compliance with privacy and encryption standards.
-GDPR, HIPAA aligned.
-Required for all agents seeking Fabric Alliance certification.
-
-Tier 2 – Enterprise-Grade Certification
-Includes Tier 1 requirements.
-Adds enterprise-level data protection and resilience standards.
-ISO 27001/9001 alignment for production environments.
-
-Tier 3 – Advanced Ethical AI Certification
-Includes Tier 2 requirements.
-Adds bias mitigation, human rights protections, and ethical decision transparency.
-Designed for agents in sensitive domains: healthcare, governance, critical infrastructure.
-
-Certification Process
-
-Developer submits certification request to the Fabric Alliance Certification Committee.
-Automated audits verify compliance with:
-Privacy, security, and provenance logging.
-Fork lineage and royalty distribution integrity.
-Policy enforcement checks.
-DAO members review results and vote.
-Upon approval:
-Agent is added to this registry.
-Receives Alliance Certified Badge (Tier-specific cryptographic seal).
-Certification status recorded permanently on-chain.
-
-Certified Agents List
-
-Agent Name	Version	Tier	Certification Seal	Fork Lineage ID	DAO Vote Link	Status
-AgentRepacker	1.0.0	2	✅ Alliance Seal T2	0xfabr1	Vote #12	✅ Certified
-RiskNavigator	1.0.0	3	✅ Alliance Seal T3	0xfabr2	Vote #15	✅ Certified
-SovereignDatasetClaim	1.0.0	2	✅ Alliance Seal T2	0xfabr3	Vote #18	✅ Certified
-Note: This is an evolving registry. All certifications are verified through DAO governance and public audits.
-
-Verification
-
-On-chain Record: Certifications can be cryptographically verified via DAO smart contracts.
-Public Audit Reports: Stored under /audits in this repository for transparency.
-Royalty Enforcement: Verified through the fab claim CLI command.
+Uphold ethical execution standards
+Operate with environmental sustainability
+Provide transparent forensic audit trails
+Maintain cross-chain compliance and policy integrity
+Enjoy fail-safe re-certification protections
+Certification Categories
+1. Ethical Compliance Badge
+Ensures the agent operates under immutable policy seals aligned with:
+Non-harm and safety policies
+Human oversight and veto safeguards
+Data privacy and royalty fairness
+Badge: ethical-certified
+2. Environmental Sustainability Badge
+Confirms the agent’s energy consumption is:
+Within DAO-approved budgets
+Monitored via the Energy Ledger
+Offset with climate-friendly incentives
+Includes DAO-issued green sustainability credit.
+Badge: eco-certified
+3. Forensic Audit Badge
+Indicates the agent has:
+Full, immutable provenance trails
+Cryptographic audit hashes stored on-chain
+Verified rollback and forensic replay capabilities
+Badge: forensic-certified
+4. Cross-Chain Attestation Badge
+Ensures the agent’s policies and audits extend to:
+External blockchains
+Off-chain environments (IoT, robotics)
+Attestations are cross-verified via decentralized oracles.
+Badge: crosschain-certified
+5. Fail-Safe Protection Badge
+Confirms the agent:
+Automatically re-certifies during DAO or Fabric runtime failures
+Retains all rights, royalties, and protections during recovery
+Badge: failsafe-certified
+Certified Agent Entry Format
+Each certified agent is listed with:
+- agent_id: <Unique Agent Identifier>
+  name: <Agent Name>
+  developer: <Developer or Organization>
+  badges:
+    - ethical-certified
+    - eco-certified
+    - forensic-certified
+    - crosschain-certified
+    - failsafe-certified
+  royalty_address: <DAO Royalty Address>
+  certification_nft: <Certification NFT Hash>
+  audit_hash: <Cryptographic Audit Hash>
+  provenance_link: <On-chain Provenance URL>
+  energy_budget: <kWh or Fabric Energy Units>
+  cross_chain_attestations:
+    - network: <External Chain Name>
+      attestation_hash: <Hash>
+Example Certified Agents
+Agent 1 – “DataGuardian”
+- agent_id: AGT-0001
+  name: DataGuardian
+  developer: SecureAI Labs
+  badges:
+    - ethical-certified
+    - eco-certified
+    - forensic-certified
+    - crosschain-certified
+    - failsafe-certified
+  royalty_address: 0xFAB12345ABC...
+  certification_nft: 0xNFT1234CERT...
+  audit_hash: 0xAUDITHASH123...
+  provenance_link: https://fabric-scan.io/provenance/AGT-0001
+  energy_budget: 50 FEU/month
+  cross_chain_attestations:
+    - network: Ethereum
+      attestation_hash: 0xETHATT123...
+    - network: Polkadot
+      attestation_hash: 0xDOTATT456...
+Agent 2 – “GreenMinerAI”
+- agent_id: AGT-0002
+  name: GreenMinerAI
+  developer: EcoCompute Ltd
+  badges:
+    - ethical-certified
+    - eco-certified
+    - forensic-certified
+    - failsafe-certified
+  royalty_address: 0xFAB67890DEF...
+  certification_nft: 0xNFT5678CERT...
+  audit_hash: 0xAUDITHASH789...
+  provenance_link: https://fabric-scan.io/provenance/AGT-0002
+  energy_budget: 20 FEU/month
+  cross_chain_attestations: []
+Certification Verification
+To verify any certified agent:
+fab verify-certification --agent <Agent ID>
+Or check public registry and provenance ledger:
+🌐 Fabric Certified Agent Explorer
