@@ -1,0 +1,86 @@
+.certification-registry {
+  padding: 30px;
+  color: #fff;
+  background: #0f1117;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1b1f2a;
+  color: #fff;
+}
+
+.agents-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.agents-table th, .agents-table td {
+  border: 1px solid #333;
+  padding: 12px;
+  text-align: center;
+}
+
+.details-button {
+  background: #2196f3;
+  border: none;
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.details-button:hover {
+  background: #1976d2;
+}
+
+.no-agents {
+  text-align: center;
+  padding: 20px;
+}
+
+.agent-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #101820;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5em;
+  color: #fff;
+  cursor: pointer;
+}
