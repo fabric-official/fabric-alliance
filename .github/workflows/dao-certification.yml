@@ -1,0 +1,58 @@
+name: DAO Certification Workflow
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  issues:
+    types: [labeled]
+
+jobs:
+  dao-certification:
+    if: github.event.pull_request.merged == true || contains(github.event.issue.labels.*.name, 'certification') || contains(github.event.issue.labels.*.name, 'revoke')
+    runs-on: ubuntu-latest
+
+    env:
+      RPC_URL: ${{ secrets.RPC_URL }}
+      PRIVATE_KEY: ${{ secrets.DAO_PRIVATE_KEY }}
+      CERT_ENFORCEMENT_ADDRESS: ${{ secrets.CERT_ENFORCEMENT_ADDRESS }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install ethers dotenv
+
+      - name: Detect Proposal Type
+        id: detect
+        run: |
+          if [[ "${{ github.event.issue.labels.*.name }}" == *"certification"* ]]; then
+            echo "action=certify" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event.issue.labels.*.name }}" == *"revoke"* ]]; then
+            echo "action=revoke" >> $GITHUB_OUTPUT
+          else
+            echo "action=skip" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Extract Agent Details
+        id: extract
+        run: |
+          echo "agentAddress=$(grep -oP '(?<=Agent ID:\*\* ).*' $GITHUB_EVENT_PATH)" >> $GITHUB_OUTPUT
+          echo "royaltyAddress=$(grep -oP '(?<=Royalty Address:\*\* ).*' $GITHUB_EVENT_PATH)" >> $GITHUB_OUTPUT
+          echo "badgesFile=tools/badges-temp.json" >> $GITHUB_OUTPUT
+          echo "[]" > tools/badges-temp.json  # Placeholder; can be extended to parse proposal badges
+
+      - name: Run Certification Contract Call
+        if: steps.detect.outputs.action != 'skip'
+        run: |
+          node tools/vote-proposal.js \
+            "AUTO-${{ github.run_id }}" \
+            "${{ steps.detect.outputs.action }}" \
+            "${{ steps.extract.outputs.agentAddress }}" \
+            "${{ steps.extract.outputs.royaltyAddress }}" \
+            "${{ steps.extract.outputs.badgesFile }}"
+
+      - name: Cleanup
+        run: rm -f tools/badges-temp.json
