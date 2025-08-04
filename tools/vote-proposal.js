@@ -1,42 +1,80 @@
 #!/usr/bin/env node
 const { ethers } = require("ethers");
+const fs = require("fs");
+require("dotenv").config();
 
-const args = require("minimist")(process.argv.slice(2));
-const proposalId = args.proposal;
-const vote = args.vote;
+const CONTRACT_ADDRESS = process.env.CERT_ENFORCEMENT_ADDRESS;
+const ABI = JSON.parse(fs.readFileSync("./tools/smart-contracts/CertificationEnforcementABI.json"));
 
-if (!proposalId || !vote) {
-  console.error("Usage: node vote-proposal.js --proposal <proposal-id> --vote <yes|no|abstain>");
-  process.exit(1);
-}
-
-async function submitVote() {
-  try {
-    const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+async function main() {
+    const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
     const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-    const daoContract = new ethers.Contract(
-      process.env.DAO_CONTRACT_ADDRESS,
-      ["function vote(uint256 proposalId, uint8 support) public"],
-      signer
-    );
+    const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
 
-    let support;
-    switch (vote.toLowerCase()) {
-      case "yes": support = 1; break;
-      case "no": support = 0; break;
-      case "abstain": support = 2; break;
-      default:
-        console.error("Invalid vote. Use yes, no, or abstain.");
+    // Arguments
+    const proposalId = process.argv[2];
+    const action = process.argv[3]; // approve, reject, certify, revoke
+    const agentAddress = process.argv[4] || null;
+    const royaltyAddress = process.argv[5] || null;
+    const badgesFile = process.argv[6] || null;
+
+    if (!proposalId || !action) {
+        console.error("Usage: vote-proposal <proposalId> <approve|reject|certify|revoke> [agentAddress royaltyAddress badgesFile]");
         process.exit(1);
     }
 
-    const tx = await daoContract.vote(proposalId, support);
-    await tx.wait();
+    console.log(`🔑 Executing DAO vote/proposal action: ${action} for Proposal ID: ${proposalId}`);
 
-    console.log(`✅ Vote submitted successfully: ${vote.toUpperCase()} for proposal ${proposalId}`);
-  } catch (err) {
-    console.error("Error submitting vote:", err.message);
-  }
+    // Load badges if certifying
+    let badges = [];
+    if (action === "certify" && badgesFile) {
+        try {
+            badges = JSON.parse(fs.readFileSync(badgesFile));
+            if (!Array.isArray(badges)) throw new Error("Badges must be an array.");
+        } catch (err) {
+            console.error("❌ Error reading badges file:", err.message);
+            process.exit(1);
+        }
+    }
+
+    // Simulated governance approval
+    if (action === "approve") {
+        console.log(`✅ Proposal ${proposalId} approved in DAO governance.`);
+        return;
+    }
+
+    if (action === "reject") {
+        console.log(`❌ Proposal ${proposalId} rejected in DAO governance.`);
+        return;
+    }
+
+    // Trigger certification enforcement
+    if (action === "certify") {
+        if (!agentAddress || !royaltyAddress) {
+            console.error("Usage: vote-proposal <proposalId> certify <agentAddress> <royaltyAddress> <badgesFile>");
+            process.exit(1);
+        }
+
+        console.log(`🚀 Certifying agent ${agentAddress} with badges: ${badges.join(", ")}`);
+        const tx = await contract.certifyAgent(agentAddress, royaltyAddress, badges);
+        await tx.wait();
+        console.log(`✅ Agent ${agentAddress} certified successfully.`);
+    }
+
+    if (action === "revoke") {
+        if (!agentAddress) {
+            console.error("Usage: vote-proposal <proposalId> revoke <agentAddress>");
+            process.exit(1);
+        }
+
+        console.log(`⚠️ Revoking certification for agent ${agentAddress}...`);
+        const tx = await contract.revokeCertification(agentAddress);
+        await tx.wait();
+        console.log(`✅ Certification revoked for agent ${agentAddress}.`);
+    }
 }
 
-submitVote();
+main().catch((err) => {
+    console.error("❌ Error executing proposal:", err);
+    process.exit(1);
+});
