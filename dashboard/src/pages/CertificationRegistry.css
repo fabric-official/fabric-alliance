@@ -11,16 +11,32 @@ h1 {
   margin-bottom: 20px;
 }
 
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
 .search-input {
   width: 100%;
   max-width: 400px;
   display: block;
-  margin: 0 auto 20px;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #444;
   background: #1b1f2a;
   color: #fff;
+  font-size: 1em;
+}
+
+.badge-filter {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1b1f2a;
+  color: #fff;
+  font-size: 1em;
 }
 
 .agents-table {
@@ -29,10 +45,17 @@ h1 {
   margin-top: 10px;
 }
 
-.agents-table th, .agents-table td {
+.agents-table th,
+.agents-table td {
   border: 1px solid #333;
   padding: 12px;
   text-align: center;
+}
+
+.agents-table th {
+  background: #1b1f2a;
+  font-weight: bold;
+  color: #e0e0e0;
 }
 
 .details-button {
@@ -42,6 +65,7 @@ h1 {
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 .details-button:hover {
@@ -51,6 +75,13 @@ h1 {
 .no-agents {
   text-align: center;
   padding: 20px;
+  color: #bbb;
+}
+
+.registry-loading {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
 }
 
 .agent-details-modal {
@@ -63,6 +94,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
 }
 
 .modal-content {
@@ -72,6 +104,7 @@ h1 {
   width: 90%;
   max-width: 700px;
   position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
 .close-modal {
@@ -83,4 +116,12 @@ h1 {
   font-size: 1.5em;
   color: #fff;
   cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #f44336;
+}
+
+.certification-registry table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
