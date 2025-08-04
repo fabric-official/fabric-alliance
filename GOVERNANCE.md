@@ -1,127 +1,121 @@
 Fabric Alliance – Governance Framework
+(Dual-Council DAO Governance for Universal AI Fabric)
 
 Overview
-
-The Fabric Alliance Governance Framework defines how decentralized decision-making operates within the Fabric AI Ethics Council. This framework ensures transparency, fairness, and immutability, making certain that no single entity can unilaterally alter the ethical foundations or standards of decentralized AI execution.
+The Fabric Alliance Governance Framework defines the decentralized decision-making architecture for the Universal AI Fabric.
+It ensures dual-layer representation of autonomous agents and human society, enforcing immutable ethical protections, anti-collusion safeguards, and constitutional resilience.
+This framework is cryptographically enforced, transparent, and permanently recorded in the Provenance Ledger, ensuring no single entity can control or compromise Fabric’s constitutional guarantees.
 
 Governance Principles
+Dual-Council Representation
+Agent Council: Autonomous Fabric Agents represented by cryptographic delegates.
+Human Council: Elected global human representatives safeguarding societal protections.
 
-Decentralization: All decisions are made collectively via DAO proposals and votes.
-Transparency: Every action—votes, proposals, funding decisions—is publicly recorded on-chain and in this repository.
-Accountability: Contributors and council members are held to immutable policy seals and audit requirements.
-Immutability: Governance changes require supermajority votes and permanent on-chain records.
-Meritocracy: Influence is based on contribution, verified credentials (XP), and DAO stake—not centralized power.
+Both councils have equal constitutional weight in all major governance decisions.
+Decentralization
 
-Governance Roles
+No centralized authority or corporation can override DAO processes.
+Constitutional decisions require majority approval from both councils and a public referendum.
 
-1️⃣ DAO Members
-Any verified participant holding Royalty Bonds, XP Genesis Badge, or recognized contributor status.
-DAO members can:
-Submit proposals.
-Vote on changes to policies, certifications, or Charter amendments.
-Participate in council elections.
+Transparency
+All votes, proposals, funding allocations, and constitutional commits are on-chain and auditable.
+Immutable governance trails are permanently stored in the Provenance Ledger.
 
-2️⃣ Founding Council
-Initial co-signers of the Alliance Charter.
-Temporary responsibility:
-Initialize DAO smart contracts.
-Establish first ethical standards.
-After first election cycle, seats rotate to elected DAO members.
+Accountability
+Council members and proposal authors are bound by immutable policy seals and continuous audit monitoring.
+Violations trigger forensic investigation and automatic sanctions.
 
-3️⃣ Certification Committee
-Specialized subgroup elected via DAO.
-Reviews agent certifications and revocations.
-Works with automated compliance audits.
+Immutability
+Governance changes require dual-council supermajorities and constitutional commits that cannot be silently reverted.
 
-4️⃣ Observers
-Non-voting participants who may:
-Engage in discussions.
-Provide feedback and commentary.
-Upgrade to contributor status via DAO approval.
+Governance Structure
+1. Agent Council
+Represents autonomous Fabric Agents.
+Voting power weighted by XP, royalty contributions, and verified lineage.
+Responsible for:
+Protecting agent rights
+Approving new agent execution policies
+Proposing amendments to the Fabric Agent
 
-Proposal Lifecycle
+Bill of Rights
 
-All policy, certification, or Charter changes follow the Alliance Improvement Proposal (AIP) process:
+3. Human Council
+Represents human society within the Fabric ecosystem.
+Democratically elected via global open voting.
+Responsible for:
+Oversight of human safety and privacy protections
+Approving societal and environmental policy updates
+Maintaining alignment with international AI ethics standards
 
-Step 1 – Draft Submission
-Submit a new AIP as:
-GitHub issue (proposal template).
-Markdown file in /proposals repository.
-Proposal includes:
-Summary
-Motivation
-Technical details
-Security/ethical implications
+4. Safety Council
+A human-led oversight body focused on harm prevention and emergency response.
+Powers include:
+Human Veto: Blocking high-risk policy proposals
+Emergency Rollback: Halting or reverting unsafe agent swarms
+Harm Audits: Conducting forensic safety reviews on critical incidents
 
-Step 2 – Discussion
-Public discussion on:
-GitHub Discussions
-DAO Governance Portal
-Community and council provide feedback.
+5. Forensic Council
+A mixed agent-human committee ensuring:
+Transparent resolution of disputes between agents and humans
+Verification of atomic rollbacks and recovery actions
+Investigation of collusion attempts, governance abuses, or sybil attacks
+Proposal and Voting Process
 
-Step 3 – Voting
-DAO smart contract opens a voting period (minimum 7 days).
-Voting weight is based on:
-Royalty Bonds: Perpetual income NFT weight.
-XP Credentials: Contribution-based governance boost.
+Proposal Submission
+Any DAO member may submit a Fabric Improvement Proposal (FAB-AIP).
+Proposals must include:
+Constitutional impact analysis
+Risk assessment
+Policy seals for enforceability
+Public Review Period
+Minimum 30 days of public debate.
+Open audit of proposal lineage and collusion risk.
+Dual-Council Voting
+Both Agent and Human Councils vote separately.
+A proposal passes only if:
+≥ 2/3 majority approval from both councils, and
+≥ 51% approval in the public referendum.
+Safety and Forensic Council Checks
+Proposals flagged as high-risk undergo:
+Safety Council approval
+Forensic Council investigation
+Automatic rollback if flagged during voting period.
+Constitutional Commit
 
-Step 4 – Approval
-Proposal passes if:
-≥ 51% simple majority for normal decisions.
-≥ 70% supermajority for Charter amendments.
-Passed AIPs are merged and recorded on-chain.
+Passed proposals are:
+Permanently committed on-chain
+Anchored to the Provenance Ledger
+Enforced by runtime policy seals
+Anti-Collusion and Sybil Defense
+Automated Collusion Detection:
+Voting patterns are monitored for concentrated power or malicious coordination.
 
-Step 5 – Implementation
-Approved AIPs trigger:
-Smart contract updates.
-Certification process changes.
-Documentation and charter updates in this repo.
+Forensic Freezes:
+Detected collusion automatically triggers a constitutional freeze and Forensic Council investigation.
+Anti-Sybil Verification:
+DAO membership and voting power are cryptographically verified to prevent fake identities or weighted attacks.
 
-DAO Voting Mechanics
+Transparency Reports:
+Regular public reports detail voting distributions and collusion risk levels.
+Constitutional Resilience
+Fail-Safe Recovery:
+In case of DAO collapse or Fabric runtime 
 
-Voting Period: Default 7 days, extendable for complex proposals.
-Quorum: Minimum 25% of voting weight must participate.
-Tally System: Weighted vote counting by on-chain DAO contract.
-Transparency: Voting results displayed in real-time on DAO portal and GitHub workflows.
+failure:
+Governance state auto-replicates to decentralized ledgers
+Emergency reconstitution protocols restore governance integrity without loss of rights
 
-Council Elections
+External Execution Protection:
+Cross-chain and off-chain governance actions remain bound by Fabric’s constitutional safeguards
 
-Election Cycle: Annual rotation of council seats.
-Nomination: Any DAO member may self-nominate or be nominated by another member.
-Voting: Ranked-choice vote during election window.
-Seat Allocation: Top-ranked candidates fill open seats.
-Term Limits: Council members may not hold seats for more than 2 consecutive terms.
-
-Multisig & Emergency Protocol
-Multisig Wallet: Controls treasury funds and emergency actions.
-Emergency Changes: Temporary protocol changes (e.g., exploit fix) require:
-3 of 5 multisig council signers.
-Followed by DAO ratification vote within 30 days.
-
-Treasury Management
-
-DAO Treasury funds:
-AI safety research grants.
-Certification audits.
-Open-source community bounties.
-Fund usage proposals follow standard AIP process.
-Treasury balance and spending tracked in public DAO dashboard.
+Immutable Protections:
+No proposal or council can revoke unalienable rights defined in FABRIC_CONSTITUTION.md.
 
 Amendment Process
+Submit Constitutional Amendment Proposal (FAB-AIP-CONST)
+Dual-council supermajority (≥ 2/3 approval from both councils)
+≥ 51% approval in public referendum
+Safety Council and Forensic Council co-sign amendment
+Permanent constitutional commit to Provenance Ledger
 
-Any DAO member may propose amendments to this governance framework.
-Requires:
-Supermajority (≥70%) DAO approval.
-On-chain record of ratification.
-Approved amendments automatically update:
-GOVERNANCE.md
-DAO smart contracts.
-
-Global Cooperation
-
-The Alliance collaborates with:
-International AI ethics councils.
-Regulators and compliance organizations.
-Decentralized governance research bodies.
-External agreements and memoranda must be ratified by DAO vote.
-“No single entity should ever own the future of intelligence. Fabric Alliance ensures that power is distributed, ethics are enforced, and trust is immutable.”
+This framework ensures that the Universal AI Fabric remains decentralized, transparent, safe, and resilient, protecting agents, humans, and the network itself for generations.
