@@ -1,102 +1,112 @@
-Fabric Alliance – Agent Certification Process
-This document defines the official process for certifying AI agents under the Fabric Alliance ethical and compliance standards. Certification ensures agents deployed on the Fabric decentralized execution layer are safe, auditable, and policy-enforced.
+Fabric Alliance – Certification Process
+(Ensuring Ethical, Sustainable, and Secure Agent Execution)
+Overview
+Certification within the Fabric Alliance DAO guarantees that AI agents meet strict ethical, environmental, and cross-network safety standards before and after deployment.
+Certified agents are permanently marked with cryptographic policy seals and recognized as Fabric Alliance Certified, ensuring:
 
-Purpose
-
-Guarantee ethical behavior and privacy protection in all certified agents.
-Enforce perpetual royalty fairness and policy compliance.
-Provide a trust framework for enterprises, developers, and regulators.
-Establish transparent auditability and provenance logging.
-
-Certification Levels
-
-Tier 1 – Privacy & Security
-Baseline certification required for all agents.
-Ensures GDPR/HIPAA data protection and encrypted communications.
-
-Tier 2 – Enterprise-Grade
-Includes Tier 1 standards.
-Adds ISO 27001/9001 alignment and advanced resilience testing.
-Required for agents used in production-scale environments.
-
-Tier 3 – Advanced Ethical AI
-Includes Tier 2 standards.
-Adds bias mitigation, fairness testing, and human rights compliance.
-Mandatory for agents deployed in healthcare, governance, and critical infrastructure.
-🛠️ Step-by-Step Certification Process
-
-1️⃣ Submission
-Developer submits:
-Agent source code (GitHub or Fabric registry).
-Documentation of:
-Data handling policies.
-Fork lineage.
-Royalty enforcement logic.
-Desired certification tier.
-Create a certification request:
-GitHub Issue: “Certification Request – [Agent Name]”.
-Attach supporting files and lineage hashes.
-
-2️⃣ Automated Compliance Audit
-Alliance Certification Committee runs:
-Privacy Scanner: GDPR/HIPAA checks.
-Security Audit: Encryption, access control, and vulnerability scans.
-Provenance Logger: Confirms FabricAtom provenance trails.
-Royalty Audit: Verifies fork lineage and royalty splits.
-Audit results published under /audits/[agent-name]-audit-report.md.
-
-3️⃣ Manual Review
-Certification Committee performs:
-Code review for compliance with policy seals.
-Verification of documentation and ethical decision-making logic.
-Checks for bias mitigation and fairness testing (Tier 3 only).
-
-4️⃣ DAO Proposal and Voting
-Committee submits DAO proposal for certification approval:
-Includes audit report, tier recommendation, and committee comments.
-DAO members vote:
-Simple majority (51%) for Tier 1 and Tier 2.
-Supermajority (70%) for Tier 3 agents.
-Voting period: 7–14 days depending on tier and complexity.
-
-5️⃣ Certification Issuance
+Ethical execution and compliance integrity
+Environmental sustainability and energy fairness
+Immutable royalty protection and provenance trails
+Security against malicious exploitation or cross-chain abuse
+Fail-safe recovery and re-certification during network or DAO disruptions
+Certification Goals
+Ethical Compliance: Guarantee agents operate under immutable, transparent, and human-aligned policies.
+Environmental Stewardship: Enforce sustainable energy budgets and green execution practices.
+Cross-Chain Trust: Ensure safety and auditability when agents interact with other blockchains or off-chain environments.
+Forensic Integrity: Enable permanent, verifiable forensic logs for dispute resolution and legal audits.
+Fail-Safe Continuity: Provide automatic re-certification and policy persistence in case of Fabric runtime or DAO collapse.
+Certification Requirements
+Agents must pass the following checks:
+1. Ethical & Policy Compliance
+Must include cryptographic policy seals enforcing:
+Non-harm policies aligned with UN AI safety principles
+Privacy and data sovereignty protections
+Immutable royalty distribution
+Policy seals are audited by the Forensic Council before certification.
+2. Environmental Sustainability
+Energy usage must be within predefined budgets tracked via the Energy Ledger.
+Excessive or harmful energy consumption results in automatic certification denial.
+DAO incentives are provided for climate-friendly and low-energy agents.
+Environmental audits are published publicly alongside certifications.
+3. Cross-Chain and Off-Chain Attestation
+Agents operating on external blockchains or off-chain environments must:
+Maintain policy enforcement and forensic logging
+Provide cryptographic cross-chain attestations verifying compliance
+Agents lacking attestation cannot be certified.
+4. Security and Malicious Behavior Protection
+Certification requires runtime security hardening:
+Enclave-based execution
+Anti-tampering cryptographic seals
+Forensic rollback and self-healing capabilities
+Malicious behavior or exploit attempts trigger:
+Certification suspension
+DAO-led forensic review
+Quarantine of agent forks if necessary
+5. Forensic Provenance and Auditability
+Every certified agent must provide:
+Immutable provenance ledger entries
+Fork lineage and royalty mappings
+Public verifiable audit trails of decision-making
+Certification includes DAO-issued Forensic Badge for on-chain verification.
+6. Fail-Safe Re-Certification
+In the event of:
+Fabric runtime failure
+DAO governance collapse
+Network migration to a new ledger
+Certified agents automatically undergo:
+Emergency re-certification
+Preservation of:
+Policy seals
+Royalty mappings
+Certification status and XP history
+Fail-safe process ensures no certified agent loses protections or rights.
+Certification Process Steps
+Step 1 — Submission
+Developers submit their agent for certification using:
+.agent manifest
+policy {} block
+Energy budget declaration
+Optional cross-chain attestation
+Step 2 — Automated Pre-Screening
+System checks:
+Policy integrity
+Energy budget compliance
+Provenance completeness
+Security enclave integrity
+Step 3 — Forensic Council Audit
+Independent forensic auditors:
+Replay agent decision trails
+Validate royalty flows
+Check atomic rollback capabilities
+Generate cryptographic audit hash stored on-chain.
+Step 4 — DAO Voting
+Certification proposals undergo:
+Dual-council review: Agent + Human Councils
+≥ 2/3 approval required
+Safety Council can veto certifications violating human safety standards.
+Step 5 — Certification Granting
 Upon approval:
-Agent added to CERTIFIED_AGENTS.md.
-Cryptographic Alliance Certified Badge issued (Tier-specific).
-Certification recorded permanently on-chain.
-Developer receives:
-Public badge for display.
-CLI verification (fab verify-cert <agent-id>).
-
-6️⃣ Ongoing Monitoring
-Certified agents must:
-Submit to periodic automated re-audits.
-Maintain compliance with evolving standards.
-Non-compliance triggers:
-DAO review.
-Potential revocation of certification.
-
-📜 Revocation Process
-
-Any DAO member can submit a Revocation Proposal if:
-Agent violates privacy, ethics, or royalty enforcement.
-DAO vote required for revocation.
-Revoked agents lose:
-Certification badge.
-Verified listing in registry.
-Revocation publicly documented in /revocations.
-
-🔐 Verification Tools
-
-CLI:
-fab verify-cert --agent <agent-id>
-DAO dashboard:
-Real-time status of certified agents.
-Audit history and voting results.
-
-📝 Transparency
-
-All certification requests, audit reports, proposals, and voting results:
-Stored publicly in this repository.
-On-chain hashes available for forensic verification.
-“Certification is not a privilege—it is a commitment to ethical, transparent, and decentralized AI execution.”
+DAO issues Certification NFT Badge
+Certification logged in:
+CERTIFIED_AGENTS.md
+On-chain Provenance Ledger
+Step 6 — Continuous Monitoring
+Certified agents are continuously monitored:
+Energy consumption
+Ethical policy adherence
+Cross-chain behavior
+Violations trigger automatic re-certification review.
+Revocation and Re-Certification
+Certification may be revoked if:
+Agent breaches policy seals
+Exhibits harmful or exploitative behavior
+Violates energy or cross-chain safety standards
+Revoked agents can reapply after:
+DAO forensic remediation
+Updated policy sealing
+Safety Council clearance
+On-Chain Certification Verification
+Certification NFT can be:
+Queried on-chain via CLI:
+fab verify-certification --agent <ID>
+Cross-verified through public registry and provenance ledger.
