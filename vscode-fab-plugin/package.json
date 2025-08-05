@@ -12,24 +12,15 @@
   "engines": {
     "vscode": "^1.101.0"
   },
-  "categories": [
-    "Programming Languages"
-  ],
-  "activationEvents": [
-    "onLanguage:fabric"
-  ],
+  "categories": ["Programming Languages"],
+  "activationEvents": ["onLanguage:fabric"],
   "main": "./dist/extension.js",
   "contributes": {
     "languages": [
       {
         "id": "fabric",
-        "aliases": [
-          "Fabric",
-          "fabric"
-        ],
-        "extensions": [
-          ".fab"
-        ],
+        "aliases": ["Fabric", "fabric"],
+        "extensions": [".fab"],
         "configuration": "./src/syntax/language-configuration.json"
       }
     ],
@@ -41,36 +32,27 @@
       }
     ],
     "commands": [
-      {
-        "command": "fabric.build",
-        "title": "Fabric: Build Agent"
-      },
-      {
-        "command": "fabric.audit",
-        "title": "Fabric: Audit Agent"
-      },
-      {
-        "command": "fabric.claim",
-        "title": "Fabric: Claim Royalties"
-      }
+      { "command": "fabric.build", "title": "Fabric: Build Agent" },
+      { "command": "fabric.audit", "title": "Fabric: Audit Agent" },
+      { "command": "fabric.claim", "title": "Fabric: Claim Royalties" }
     ]
   },
   "scripts": {
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "package": "npx @vscode/vsce package",
-    "test": "npm run compile && node ./dist/test/test-runner.js"
+    "test": "npm run compile && node ./dist/scripts/test-runner.js"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.101.0",
     "@types/mocha": "^10.0.0",
     "@vscode/vsce": "^2.17.0",
+    "@vscode/test-electron": "^2.3.0",
     "eslint": "^8.0.0",
     "typescript": "^5.0.0",
     "mocha": "^10.0.0",
     "chai": "^4.3.0",
-    "glob": "7.2.3",
-    "@vscode/test-electron": "^2.3.0"
+    "glob": "7.2.3"
   }
 }
