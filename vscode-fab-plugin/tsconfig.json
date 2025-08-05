@@ -11,10 +11,13 @@
   },
   "include": [
     "src/**/*",
-    "scripts/**/*",
     "test/**/*"
+  ],
+  "exclude": [
+    "scripts"
   ]
 }
+
 
 
 
