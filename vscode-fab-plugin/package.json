@@ -4,6 +4,11 @@
   "description": "Syntax highlighting, snippets, and Fabric CLI integration for .fab language",
   "version": "0.1.0",
   "publisher": "fabric-alliance",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabric-official/fabric-alliance.git"
+  },
+  "license": "Apache-2.0",
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -14,11 +19,6 @@
     "onLanguage:fabric"
   ],
   "main": "./dist/extension.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fabric-official/fabric-alliance.git"
-  },
-  "license": "Apache-2.0",
   "contributes": {
     "languages": [
       {
@@ -58,7 +58,7 @@
   "scripts": {
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
-    "package": "vsce package"
+    "package": "npx @vscode/vsce package"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
