@@ -4,7 +4,7 @@ import { runTests } from '@vscode/test-electron';
 async function main() {
   try {
     const extensionDevelopmentPath = path.resolve(__dirname, '../');
-    const extensionTestsPath = path.resolve(__dirname, '../dist/scripts/suite/index'); // ✅ Fix path
+    const extensionTestsPath = path.resolve(__dirname, '../dist/test/suite/index'); // ✅ updated path
     await runTests({ extensionDevelopmentPath, extensionTestsPath });
   } catch (err) {
     console.error('Failed to run tests', err);
@@ -13,6 +13,7 @@ async function main() {
 }
 
 main();
+
 
 
 
