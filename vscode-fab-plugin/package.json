@@ -59,7 +59,7 @@
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "package": "npx @vscode/vsce package",
-    "test": "npm run compile && node ./scripts/test-runner.js"
+    "test": "npm run compile && node ./dist/test/test-runner.js"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
