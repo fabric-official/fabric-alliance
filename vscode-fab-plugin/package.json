@@ -72,6 +72,9 @@
     "chai": "^4.3.0",
     "glob": "7.2.3",
     "@vscode/test-electron": "^2.3.0"
+  },
+  "overrides": {
+    "glob": "7.2.3",
+    "mocha>glob": "7.2.3"
   }
 }
-
