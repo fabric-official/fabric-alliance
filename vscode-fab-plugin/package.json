@@ -18,18 +18,13 @@
   "activationEvents": [
     "onLanguage:fabric"
   ],
-  "main": "dist/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "languages": [
       {
         "id": "fabric",
-        "aliases": [
-          "Fabric",
-          "fabric"
-        ],
-        "extensions": [
-          ".fab"
-        ],
+        "aliases": ["Fabric", "fabric"],
+        "extensions": [".fab"],
         "configuration": "./src/syntax/language-configuration.json"
       }
     ],
@@ -41,18 +36,9 @@
       }
     ],
     "commands": [
-      {
-        "command": "fabric.build",
-        "title": "Fabric: Build Agent"
-      },
-      {
-        "command": "fabric.audit",
-        "title": "Fabric: Audit Agent"
-      },
-      {
-        "command": "fabric.claim",
-        "title": "Fabric: Claim Royalties"
-      }
+      { "command": "fabric.build", "title": "Fabric: Build Agent" },
+      { "command": "fabric.audit", "title": "Fabric: Audit Agent" },
+      { "command": "fabric.claim", "title": "Fabric: Claim Royalties" }
     ]
   },
   "scripts": {
@@ -72,11 +58,6 @@
     "chai": "^4.3.0",
     "glob": "7.2.3",
     "@vscode/test-electron": "^2.3.0"
-  },
-  "overrides": {
-    "glob": "7.2.3",
-    "mocha": {
-      "glob": "7.2.3"
-    }
   }
 }
+
