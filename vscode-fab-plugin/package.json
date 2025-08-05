@@ -1,7 +1,7 @@
 {
   "name": "vscode-fab-plugin",
   "displayName": "Fabric DSL Plugin",
-  "description": "Syntax highlighting, snippets, and Fabric CLI integration for the .fab language.",
+  "description": "Syntax highlighting, snippets, and Fabric CLI integration for .fab language",
   "version": "0.1.0",
   "publisher": "fabric-alliance",
   "engines": {
@@ -9,7 +9,7 @@
   },
   "categories": ["Programming Languages"],
   "activationEvents": ["onLanguage:fabric"],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "languages": [
       {
@@ -48,9 +48,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "typescript": "^5.0.0",
     "eslint": "^8.0.0",
-    "@vscode/vsce": "^2.20.0"
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.17.0"
   }
 }
+
 
