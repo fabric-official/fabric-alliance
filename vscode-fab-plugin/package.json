@@ -1,9 +1,3 @@
-
----
-
-### **📄 package.json**
-
-```json
 {
   "name": "vscode-fab-plugin",
   "displayName": "Fabric DSL Plugin",
