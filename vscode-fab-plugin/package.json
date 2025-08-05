@@ -5,17 +5,26 @@
   "version": "0.1.0",
   "publisher": "fabric-alliance",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.102.0"
   },
-  "categories": ["Programming Languages"],
-  "activationEvents": ["onLanguage:fabric"],
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:fabric"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "languages": [
       {
         "id": "fabric",
-        "aliases": ["Fabric", "fabric"],
-        "extensions": [".fab"],
+        "aliases": [
+          "Fabric",
+          "fabric"
+        ],
+        "extensions": [
+          ".fab"
+        ],
         "configuration": "./src/syntax/language-configuration.json"
       }
     ],
@@ -44,14 +53,13 @@
   "scripts": {
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
-    "package": "npx @vscode/vsce package"
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "@types/vscode": "^1.102.0",
+    "@vscode/vsce": "^2.17.0",
     "eslint": "^8.0.0",
-    "typescript": "^5.0.0",
-    "@vscode/vsce": "^2.17.0"
+    "typescript": "^5.0.0"
   }
 }
-
-
