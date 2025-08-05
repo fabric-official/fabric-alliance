@@ -45,7 +45,7 @@
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "package": "npx @vscode/vsce package",
-    "test": "npm run compile && node ./dist/test/test-runner.js"
+    "test": "npm run compile && npx @vscode/test-electron --extensionDevelopmentPath=. --extensionTestsPath=./dist/test/suite/index.js"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -60,4 +60,5 @@
     "@vscode/test-electron": "^2.3.0"
   }
 }
+
 
