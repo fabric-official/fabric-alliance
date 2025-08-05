@@ -1,6 +1,7 @@
 import * as path from 'path';
 import Mocha from 'mocha';
-import glob = require('glob'); // ✅ Correct for CommonJS
+// ✅ Correctly import glob for CommonJS
+const glob: any = require('glob');
 
 async function run(): Promise<void> {
   const mocha = new Mocha({ ui: 'tdd', color: true });
@@ -9,15 +10,22 @@ async function run(): Promise<void> {
   return new Promise((resolve, reject) => {
     glob('**/*.test.js', { cwd: testsRoot }, (err: Error | null, files: string[]) => {
       if (err) return reject(err);
-      files.forEach(f => mocha.addFile(path.resolve(testsRoot, f)));
-      mocha.run(failures => failures > 0 ? reject(new Error(`${failures} tests failed.`)) : resolve());
+      files.forEach((f: string) => mocha.addFile(path.resolve(testsRoot, f)));
+      mocha.run((failures: number) => {
+        if (failures > 0) {
+          reject(new Error(`${failures} tests failed.`));
+        } else {
+          resolve();
+        }
+      });
     });
   });
 }
 
-run().catch(err => {
+run().catch((err) => {
   console.error(err);
   process.exit(1);
 });
+
 
 
