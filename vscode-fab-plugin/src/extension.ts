@@ -18,3 +18,4 @@ function runFabCommand(command: string) {
 }
 
 export function deactivate() {}
+
