@@ -75,6 +75,8 @@
   },
   "overrides": {
     "glob": "7.2.3",
-    "mocha>glob": "7.2.3"
+    "mocha": {
+      "glob": "7.2.3"
+    }
   }
 }
